@@ -1,7 +1,7 @@
 import streamlit as st
 import mysql.connector
-import pandas as pd 
-import psycopg2
+# import pandas as pd 
+# import psycopg2
 
 def connectToDatabase():
     try:
@@ -18,16 +18,16 @@ def connectToDatabase():
         st.error(f"Error connecting to database: {e}")
         return None
 
-def run_query(query):
-    conn = create_connection()
-    cursor = conn.cursor()
-    cursor.execute(query)
-    data = cursor.fetchall()
-    columns = [desc[0] for desc in cursor.description]
-    df = pd.DataFrame(data, columns=columns)
-    cursor.close()
-    conn.close()
-    return df
+# def run_query(query):
+#     conn = create_connection()
+#     cursor = conn.cursor()
+#     cursor.execute(query)
+#     data = cursor.fetchall()
+#     columns = [desc[0] for desc in cursor.description]
+#     df = pd.DataFrame(data, columns=columns)
+#     cursor.close()
+#     conn.close()
+#     return df
 
 
 
