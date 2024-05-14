@@ -1,14 +1,14 @@
 import streamlit as st
 import mysql.connector
 
-def connectToDatabase(host, port, user, password, database):
+def connectToDatabase():
     try:
         conn = mysql.connector.connect(
-            host=host, 
-            port=port, 
-            user=user, 
-            password=password, 
-            database=database
+            host="kubela.id", 
+            port=3306, 
+            user="davis2024irwan", 
+            password="wh451n9m@ch1n3", 
+            database="aw"
         )
         if conn.is_connected():
             return conn
@@ -19,14 +19,8 @@ def connectToDatabase(host, port, user, password, database):
 def main():
     st.title("Aplikasi Streamlit untuk Akses Database MySQL")
 
-    host = st.text_input("Host", "kubela.id")
-    port = st.number_input("Port", min_value=0, max_value=65535, value=3306, step=1)
-    user = st.text_input("User", "davis2024irwan")
-    password = st.text_input("Password", type="password", value="wh451n9m@ch1n3")
-    database = st.text_input("Database", "aw")
-
     if st.button("Connect"):
-        conn = connectToDatabase(host, port, user, password, database)
+        conn = connectToDatabase()
         if conn:
             st.success("Connected to database successfully!")
 
